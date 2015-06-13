@@ -1,32 +1,34 @@
-//attempt 3dprintable design sunglasses
-//this will become a whole parametric design
-
-lensgrootte = 51;  //in mm , diameter
-lensboord = lensgrootte - 3;
-nauwkeurigheid = 100; //configure to tweek rendertime
+/*
+    attempt 3dprintable design sunglasses
+    this will become a whole parametric design
+    matthiasadriaens@gmail.com
+*/
+dia = 50;  //in mm , diameter of glasses, whole design is configured with this number, please change (for reasonable desings 40-70mm)
+resolution = 40; //change resolution, effects rendertime
 
 module lenshouder()
 {
+    border = dia-3;
     difference()
     {
-        cylinder(h=3.5,r=(lensgrootte+2)/2, $fn=nauwkeurigheid);
+        cylinder(h=3.5,r=(dia+2)/2, $fn=resolution);
         translate([0,0,1])
-        cylinder(h=2.5,r=lensgrootte/2, $fn=nauwkeurigheid);
-        cylinder(h=1,r=lensboord/2,$fn=nauwkeurigheid );
+        cylinder(h=2.5,r=dia/2, $fn=resolution);
+        cylinder(h=1,r=border/2,$fn=resolution);
     }
 
     difference()
     {
         difference()
         {
-            translate([-3.5,25.5,0])cube([7,12,2]);
-            translate([-2,27,1])cube([4,7,2]); //holder hinge
+            translate([-3.5,dia/2,0])cube([7,12,2]);
+            translate([-2,(dia/2)+1.5,1])cube([4,7,2]); //holder hinge
         }
-        translate([0,33,0])
+        translate([0,(dia/2)+6.5,0])
         difference()
         {
-            cylinder(h=2,r=7,$fn=nauwkeurigheid);
-            cylinder(h=2,r=3.5,$fn=nauwkeurigheid);
+            cylinder(h=2,r=7,$fn=resolution);
+            cylinder(h=2,r=3.5,$fn=resolution);
             translate([0,-5,0])cube([20,10,10], center = true);
         }
     }
@@ -54,5 +56,6 @@ module connectors()
         cylinder(h=3,r=lensgrootte/2, $fn=nauwkeurigheid);
     }
 }
+
 lenshouder();
 

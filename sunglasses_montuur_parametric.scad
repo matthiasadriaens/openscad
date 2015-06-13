@@ -55,5 +55,4 @@ module connectors()
     }
 }
 lenshouder();
-rotate([0,0,180])translate([0,74,0])lenshouder();
-connectors();
+

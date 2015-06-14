@@ -3,7 +3,7 @@
     this will become a whole parametric design
     matthiasadriaens@gmail.com
 */
-dia = 50;  //in mm , diameter of glasses, whole design is configured with this number, please change (for reasonable desings 40-70mm)
+dia = 51;  //in mm , diameter of glasses, whole design is configured with this number, please change (for reasonable desings 40-70mm)
 resolution = 40; //change resolution, effects rendertime
 
 module lenshouder()
